@@ -71,10 +71,6 @@ def BFS_Graph(G1,start_node):
                 seen.add(nei)
     return(BFS)
 
-##results bettween
-results_1 = DFS_1_Graph(G, 0, 10)
-results_2 = DFS_2_Graph(G, 0)
-
 ##test
 G_t = nx.Graph()
 G_t.add_edge(0,1)
@@ -86,6 +82,6 @@ G_t.add_edge(2,3)
 G_t.add_edge(3,4)
 G_t.add_edge(3,5)
 
-# results_3 = DFS_1_Graph(G_t, 0, 10)
+results_3 = DFS_1_Graph(G_t, 0, 10)
 results_4 = DFS_2_Graph(G_t, 0)
 result_5 = BFS_Graph(G_t,0)
