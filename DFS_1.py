@@ -8,20 +8,6 @@ Created on Sun Apr 11 13:27:07 2021
 import networkx as nx
 import numpy as np
 
-f = open('Hp_graph100_edges.txt','r')
-lines = f.readlines()
-f.close()
-
-#添加节点
-n = 100
-G = nx.Graph()
-H =np.arange(n)
-G.add_nodes_from(list(H))
-
-###添加边
-for line in lines:
-    tmp = list(line.split('\t'))
-    G.add_edge(int(tmp[0]), int(tmp[1]))
 
 ###DFS
 def DFS_1_Graph(G1,node_start, max_step):
@@ -51,6 +37,8 @@ def DFS_1_Graph(G1,node_start, max_step):
                         cur_step = cur_step + 1
                         break
     return(dfs, visited)
+
+
 def DFS_2_Graph(G1,start_node):
     DFS = []
     stack = []
