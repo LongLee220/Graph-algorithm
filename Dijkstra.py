@@ -12,49 +12,6 @@ Dijkstra Algorithm
 import networkx as nx
 import numpy as np
 
-f = open('/Users/longlee/Documents/Code/Graph/Hp_graph10_edges.txt','r')
-lines = f.readlines()
-f.close()
-
-#添加节点
-n = 10
-G = nx.DiGraph()
-H =np.arange(n)
-G.add_nodes_from(list(H))
-
-###添加边
-for line in lines:
-    tmp = list(line.strip('\n').split('\t'))
-    tmp = list(map(int, tmp))
-    G.add_weighted_edges_from([(tmp[0],tmp[1],tmp[2])])
-
-D = [9999]*10
-S = []
-start_node = 0
-D[start_node] = 0
-S.append(start_node)
-
-
-while len(H) != 0:
-    tmp_d = {}
-    for node in range(5):
-        tmp_d[node] = D[node]
-    u = S[-1]
-    next_nodes = list(nx.neighbors(G,u))
-    for nei in next_nodes:
-        w = G.get_edge_data(u,nei)['weight']
-        if D[nei] > D[u] + w:
-            D[nei] = D[u] + w
-            tmp_d[nei] = D[nei]
-    for node in list(tmp_d.keys()):
-        if node in S:
-            del tmp_d[node]
-    if not bool(tmp_d):
-        break
-    else:
-        next_node = min(zip(tmp_d.values(),tmp_d.keys()))[1]
-        S.append(next_node)
-        H = list(set(H) -set(S))
 
 ###test
 G1 =nx.DiGraph()
